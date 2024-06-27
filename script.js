@@ -97,6 +97,28 @@ function closeSettings() {
 }
 
 function setAnimation(animation) {
+  document.getElementById("random").style.transition = "none";
+  document.getElementById("snake").style.transition = "none";
+
+  if (animation == "random") {
+    document.getElementById("random").className = "material-symbols-rounded";
+    document.getElementById("random").innerText = "check";
+  
+    document.getElementById("snake").className = "";
+    document.getElementById("snake").innerText = "Snake";
+  }
+  
+  else if (animation == "snake") {
+    document.getElementById("snake").className = "material-symbols-rounded";
+    document.getElementById("snake").innerText = "check";
+  
+    document.getElementById("random").className = "";
+    document.getElementById("random").innerText = "Random Motion";
+  }
+
+  document.getElementById("random").style.transition = "none";
+  document.getElementById("snake").style.transition = "none";
+
   localStorage.setItem("animation", animation);
 
   document.getElementById("main").style.transition = "0.5s ease";
@@ -106,4 +128,20 @@ function setAnimation(animation) {
     document.getElementById("main").style.transition = "1s ease";
     document.getElementById("main").style.opacity = "1";
   }, 1000);
+}
+
+if (localStorage.getItem("animation") == "random") {
+  document.getElementById("random").className = "material-symbols-rounded";
+  document.getElementById("random").innerText = "check";
+
+  document.getElementById("snake").className = "";
+  document.getElementById("snake").innerText = "Snake";
+}
+
+else if (localStorage.getItem("animation") == "snake") {
+  document.getElementById("snake").className = "material-symbols-rounded";
+  document.getElementById("snake").innerText = "check";
+
+  document.getElementById("random").className = "";
+  document.getElementById("random").innerText = "Random Motion";
 }
