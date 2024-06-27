@@ -1,0 +1,27 @@
+/* DELETE */
+
+@font-face {
+    font-family: "Inter";
+    src: url(Inter-ExtraBold.ttf);
+}
+
+body {
+    background: black;
+    color: white;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-family: "Inter";
+    font-size: 4rem;
+
+    text-wrap: nowrap;
+
+    transition: 1s ease;
+}
+
+/* DELETE */
