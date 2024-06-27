@@ -1,70 +1,59 @@
 let joined = false;
+if (!localStorage.getItem("animation")) {
+  localStorage.setItem("animation", "random");
+}
 
-let colour = randomColour();
-document.getElementById("text").style.textShadow = `0 0 45px ${colour}, 0 0 60px ${colour}, 0 0 75px ${colour}, 0 0 90px ${colour}, 0 0 105px ${colour}`;
-
-document.getElementById("settings").style.boxShadow = `0 0 45px ${colour}, 0 0 60px ${colour}, 0 0 75px ${colour}, 0 0 90px ${colour}, 0 0 105px ${colour}`;
-document.getElementById("settings").style.backgroundColor = colour;
-
-document.getElementById("random").style.backgroundColor = colour;
-document.getElementById("snake").style.backgroundColor = colour;
-document.getElementById("close").style.backgroundColor = colour;
+colour();
 
 setInterval(() => {
-  colour = randomColour();
+  colour();
+}, 1000);
+
+setInterval(() => {
+  if (localStorage.getItem("animation") == "random") {
+    random();
+  }
+
+  else if (localStorage.getItem("animation") == "snake") {
+    snake();
+  }
+}, 1000);
+
+function colour() {
+  let colour = randomColour();
   document.getElementById("text").style.textShadow = `0 0 45px ${colour}, 0 0 60px ${colour}, 0 0 75px ${colour}, 0 0 90px ${colour}, 0 0 105px ${colour}`;
   
   document.getElementById("settings").style.boxShadow = `0 0 45px ${colour}, 0 0 60px ${colour}, 0 0 75px ${colour}, 0 0 90px ${colour}, 0 0 105px ${colour}`;
   document.getElementById("settings").style.backgroundColor = colour;
-
+  
   document.getElementById("random").style.backgroundColor = colour;
   document.getElementById("snake").style.backgroundColor = colour;
   document.getElementById("close").style.backgroundColor = colour;
-}, 1000);
-
-if (!joined) {
-  for (let index = 1; index <= 22; index++) {
-    document.getElementById(index).style.transform = `translate(${randomPosition("x")}px, ${randomPosition("y")}px)`;
-  }
 }
 
-else {
-  for (let index = 1; index <= 22; index++) {
-    document.getElementById(index).style.transform = `translate(0px, 0px)`;
-  }
-}
-
-setInterval(() => {
+function random() {
   if (!joined) {
     for (let index = 1; index <= 22; index++) {
       document.getElementById(index).style.transform = `translate(${randomPosition("x")}px, ${randomPosition("y")}px)`;
+      document.getElementById(index).style.animation = "";
     }
   }
-
+  
   else {
     for (let index = 1; index <= 22; index++) {
       document.getElementById(index).style.transform = `translate(0px, 0px)`;
+      document.getElementById(index).style.animation = "";
     }
+  }  
+}
+
+function snake() {
+  for (let index = 1; index <= 22; index++) {
+    document.getElementById(index).style.transform = `translate(0px, 0px)`;
+    document.getElementById(index).style.animation = `1.5s snake infinite ease backwards`;
+    document.getElementById(index).style.animationDelay = `${index / 3.14}s`;
   }
-}, 1000);
-
-setTimeout(() => {
-  joined = true;
-
-  setTimeout(() => {
-    joined = false;
-  }, 4000);
-}, 10000);
-
-setInterval(() => {
-  setTimeout(() => {
-    joined = true;
-
-    setTimeout(() => {
-      joined = false;
-    }, 4000);
-  }, 10000);
-}, 13000);
+}
 
 function randomColour() {
   let r = Math.random() * 255;
@@ -105,4 +94,16 @@ function closeSettings() {
   document.getElementById("settings-panel").style.transition = "1s ease";
   document.getElementById("settings-panel").style.opacity = "0";
   document.getElementById("settings-panel").style.filter = "blur(75px)";
+}
+
+function setAnimation(animation) {
+  localStorage.setItem("animation", animation);
+
+  document.getElementById("main").style.transition = "0.5s ease";
+  document.getElementById("main").style.opacity = "0";
+
+  setTimeout(() => {
+    document.getElementById("main").style.transition = "1s ease";
+    document.getElementById("main").style.opacity = "1";
+  }, 1000);
 }

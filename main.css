@@ -56,6 +56,10 @@ button {
   transition: 1s ease;
 }
 
+button:not([tabindex="-99"]) {
+  cursor: pointer;
+}
+
 #settings {
   position: absolute;
   transform: translate(-25vw, -25vh);
@@ -76,6 +80,16 @@ button {
 
 #settings-panel * {
   width: 50%;
+}
+
+@keyframes snake {
+  0%,
+  100% {
+    transform: translateY(15px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 /* DELETE */

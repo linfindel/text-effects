@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Text Effects</title>
 
   <link rel="stylesheet" href="main.css">
 </head>
@@ -50,17 +50,15 @@
   <div id="settings-panel" style="opacity: 0; filter: blur(75px);">
     <h1>Animations</h1>
 
-    <button id="random">
+    <button onclick="setAnimation('random')" id="random">
       Random Motion
     </button>
 
-    <button id="snake">
+    <button onclick="setAnimation('snake')" id="snake">
       Snake
     </button>
 
-    <button style="opacity: 0;" tabindex="-99">
-      
-    </button>
+    <button style="opacity: 0;" tabindex="-99"></button>
 
     <button onclick="closeSettings()" id="close">
       Close
