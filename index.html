@@ -8,39 +8,64 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <h1 id="text">
-    <div class="word">
-      <span id="1">W</span>
-      <span id="2">o</span>
-      <span id="3">r</span>
-      <span id="4">k</span>
-    </div>
-    
-    <div class="word">
-      <span id="5">E</span>
-      <span id="6">x</span>
-      <span id="7">p</span>
-      <span id="8">e</span>
-      <span id="9">r</span>
-      <span id="10">i</span>
-      <span id="11">e</span>
-      <span id="12">n</span>
-      <span id="13">c</span>
-      <span id="14">e</span>
-    </div>
-    
-    <div class="word">
-      <span id="15">T</span>
-      <span id="16">e</span>
-      <span id="17">m</span>
-      <span id="18">p</span>
-      <span id="19">l</span>
-      <span id="20">a</span>
-      <span id="21">t</span>
-      <span id="22">e</span>
-    </div>
-  </h1>
+  <div class="main" id="main">
+    <button onclick="openSettings()" id="settings">
+      Settings
+    </button>
+  
+    <h1 id="text">
+      <div class="word">
+        <span id="1">W</span>
+        <span id="2">o</span>
+        <span id="3">r</span>
+        <span id="4">k</span>
+      </div>
+      
+      <div class="word">
+        <span id="5">E</span>
+        <span id="6">x</span>
+        <span id="7">p</span>
+        <span id="8">e</span>
+        <span id="9">r</span>
+        <span id="10">i</span>
+        <span id="11">e</span>
+        <span id="12">n</span>
+        <span id="13">c</span>
+        <span id="14">e</span>
+      </div>
+      
+      <div class="word">
+        <span id="15">T</span>
+        <span id="16">e</span>
+        <span id="17">m</span>
+        <span id="18">p</span>
+        <span id="19">l</span>
+        <span id="20">a</span>
+        <span id="21">t</span>
+        <span id="22">e</span>
+      </div>
+    </h1>
+  </div>
 
+  <div id="settings-panel" style="opacity: 0; filter: blur(75px);">
+    <h1>Animations</h1>
+
+    <button id="random">
+      Random Motion
+    </button>
+
+    <button id="snake">
+      Snake
+    </button>
+
+    <button style="opacity: 0;" tabindex="-99">
+      
+    </button>
+
+    <button onclick="closeSettings()" id="close">
+      Close
+    </button>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
